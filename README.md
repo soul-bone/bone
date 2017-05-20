@@ -1,0 +1,2 @@
+# bone
+my core project
