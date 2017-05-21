@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { MetadataService } from 'ng2-metadata';
+
 @Component({
   selector: 'app-bone',
   templateUrl: './app.component.html',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent{
 
+  constructor(private metadataService: MetadataService) { }
+ 
 }
