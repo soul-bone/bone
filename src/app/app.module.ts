@@ -7,6 +7,10 @@ import { HttpModule } from '@angular/http';
  * Routing
  */
 import { routing } from "./app.routes";
+
+/*
+ * dynamic metadata
+ */
 import { MetadataModule, MetadataLoader, MetadataStaticLoader, PageTitlePositioning } from 'ng2-metadata';
 
 import { AppComponent } from './app.component';
@@ -15,9 +19,10 @@ export function metadataFactory() {
   return new MetadataStaticLoader({
     pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
     pageTitleSeparator: '|',
-    applicationName: 'applicationName',
+    applicationName: 'soul-bone',
     defaults: {
       title: 'soul-bone',
+      keywords: 'soul, bone, soul-bone',
       description: 'soul, bone, soul-bone',
       // 'og:image': 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg',
       // 'og:type': 'website',
