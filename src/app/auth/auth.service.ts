@@ -166,14 +166,14 @@ export class AuthNotFoundException extends Error {
 
 export class Auth {
     //  第三方用户唯一凭证
-    appid: string = "wxf77bf8625430e3f8";
+    appid: string = "";
     // 第三方用户唯一凭证密钥，即appsecret
-    secret: string = "51bac89fd91c843ab35444a150f2054b";
+    secret: string = "";
     // 获取access_token填写client_credential
     grant_type: string = "";
 
-    authUrl: string= "https://api.weixin.qq.com/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
-    // authUrl: string= "http://www.yuqi56.cn/sns/oauth2/access_token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code";
+    authUrl: string= "";
+    
     // 已经取得的token
     token: string;
     // 
