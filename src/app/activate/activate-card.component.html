@@ -1,0 +1,79 @@
+<style>
+.fa-magin-10{
+    margin: 0px 5px;
+}
+.font-blue{
+    color: #123e65;
+}
+.font-ddd{
+    color: #DDD;
+}
+.img-width-70{
+    width: 70%;
+}
+.img-width-80{
+    width: 70%;
+    max-height: 180px;
+}
+
+.context{
+    margin: 60px 30px 0 30px;
+    border: 2px solid #025aa5;
+    border-radius: 20px;
+}
+
+</style>
+
+<div class="container">
+<div class="context">
+    <div class="row " style="margin-top: -40px">
+        <span class="mx-auto font-blue">卡片已激活<i class="fa fa-check-square-o fa-magin-10" aria-hidden="true"></i></span>
+    </div>
+
+    <div class="row " >
+        <span class="mx-auto font-blue" style="background-color: #FFF;padding: 0 15px;">您的卡片商品如下</span>
+    </div>    
+    
+    <div class="row " style="margin-top: 20px">
+        <span class="mx-auto font-ddd">商品类型</span>
+    </div>
+
+    <div class="row " style="margin-top: 5px">
+        <span class="mx-auto font-blue">KORU鲜牛奶会员卡</span>
+    </div>
+
+    <div class="row " style="margin-top: 20px">
+        <span class="mx-auto font-ddd">商品名称</span>
+    </div>
+
+    <div class="row " style="margin-top: 5px">
+        <span class="mx-auto">{{card.productTypeDesc}}</span>
+    </div>
+
+    <div class="row " style="margin-top: 20px">
+        <span class="mx-auto font-ddd">商品图片</span>
+    </div>
+
+    <div class="row " style="margin-top: 5px">
+        <img src="{{card.productTypeUrl}}" class="mx-auto img-width-80  " />
+    </div>
+
+     <div class="row " style="margin-top: 20px">
+        <span class="mx-auto font-ddd">文字描述</span>
+    </div>
+
+    <div class="row " style="margin-top: 5px">
+        <span class="mx-auto font-blue">{{card.productDesc}}</span>
+    </div>   
+
+</div>
+</div>
+
+<div class="container" style="margin: 10px 30px;">
+    <div class="row " style="margin-top: 20px">
+        <span class="mx-auto font-ddd">如确定商品信息，请点击填写送货信息</span>
+    </div>
+
+    <button type="button" (click)="redirectOrder()" class="btn btn-primary btn-lg btn-block">填写</button>
+
+</div>

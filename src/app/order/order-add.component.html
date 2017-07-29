@@ -1,0 +1,100 @@
+<style>
+.select-width-100{
+    width: 100%;
+    border-radius: 2rem;
+}
+.form-control{
+    border-radius: 2rem;
+    min-height: 36px;
+}
+.buttom-10{
+    margin-bottom: 10px;
+}
+.full button span {
+background-color: limegreen;
+border-radius: 32px;
+color: black;
+}
+.partially button span {
+background-color: orange;
+border-radius: 32px;
+color: black;
+}
+</style>
+<div class="container">
+  <!-- Content here -->
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row" style="margin-top: 30px; margin-bottom: 30px">
+        <img src="assets/images/logo_koru@1x.png" class="img-fluid rounded mx-auto " alt="logo">
+    </div>
+
+</div>
+
+<div class="container" style="margin: 0px 20px;">
+
+    <div class="input-group buttom-10">
+       
+        <input [ngModel]="order.consigneeName" (ngModelChange)="order.consigneeName=$event" type="text" class="form-control" placeholder="收货人姓名" required>
+       
+    </div>
+
+    <div class="input-group">
+       
+        <input [ngModel]="order.consigneePhone" (ngModelChange)="order.consigneePhone=$event" type="tel" class="form-control " placeholder="收货人电话" required>
+      
+    </div>
+
+    <div class="buttom-10">
+        
+        <div class="form-check form-check-inline">
+        <label class="form-check-label">
+            <input class="form-check-input" type="radio" [ngModel]="order.sendType" (ngModelChange)="order.sendType=$event"  name="order.sendType" id="inlineRadio1" value="1"> 客户自提
+        </label>
+        </div>
+        <div class="form-check form-check-inline">
+        <label class="form-check-label">
+            <input class="form-check-input" type="radio" [ngModel]="order.sendType" (ngModelChange)="order.sendType=$event"  name="order.sendType" id="inlineRadio2" value="0"> 送货上门
+        </label>
+        </div>
+        
+        <select *ngIf="'1' == order.sendType" [ngModel]="order.consigneeAddress" (ngModelChange)="order.consigneeAddress=$event" class="custom-select select-width-100">
+            <option value="">请选择收货地址</option>
+            <option *ngFor="let item of items" value="{{item}}">{{item}}</option>
+        </select>
+        <select *ngIf="'0' == order.sendType" [ngModel]="order.consigneeArea" (ngModelChange)="order.consigneeArea=$event" class="custom-select select-width-100">
+            <option value="">请选择收货地址</option>
+            <option *ngFor="let item of items0" value="{{item}}">{{item}}</option>
+        </select>
+        <div *ngIf="'0' == order.sendType " >
+            <div class="input-group">
+
+                <input [ngModel]="order.consigneeAddress" (ngModelChange)="order.consigneeAddress=$event" type="text" class="form-control " placeholder="收货人详细地址" >
+            </div>
+        </div>
+    </div>
+
+
+    <div class="buttom-10">
+    <select [ngModel]="order.everyCount" (ngModelChange)="order.everyCount=$event"  class="custom-select select-width-100">
+        <option value="">请选择</option>
+        <option *ngFor="let item of options" value="{{item.id}}">{{item.text}}</option>
+    </select>
+    </div>
+
+    <div class="form-group">
+        <input type="text" [ngModel]="showTime | date: 'yyyy-MM-dd'" (click)="open()" class="form-control " placeholder="开始送货时间" readonly="readonly" required>
+        <span style="color: red">注意：由于奶源直接从新西兰空运过来，您只可以选择7天以后的日期，并且只会在周日或周一进行发货。</span>
+    </div>
+
+    <div *ngIf="opened"  style="display:inline-block; min-height:290px;">
+        <datepicker [minDate]="startTime" [dateDisabled]="dateDisabled" [(ngModel)]="order.orderStartDate" (click)="close()" (ngModelChange)="order.orderStartDate=$event" ></datepicker>
+    </div>
+    <br>
+</div>
+
+<div class="container" style="margin: 0px 20px;">
+
+    <button type="button" (click)="addorder()" class="btn btn-primary btn-lg btn-block">确定</button>
+
+</div>

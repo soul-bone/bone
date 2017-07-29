@@ -1,0 +1,48 @@
+
+<div class="container">
+  <!-- Content here -->
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row" style="margin-top: 80px; margin-bottom: 80px">
+        <img src="assets/images/logo_koru@1x.png" class="img-fluid rounded mx-auto " alt="logo">
+    </div>
+{{resp | async}}
+</div>
+
+<div class="container" style="margin: 0px 20px 60px 20px;">
+
+    <div class="input-group ">
+        <span class="input-group-addon hide-xs"><i class="fa fa-mobile fa-2" aria-hidden="true"></i></span>
+        <input [ngModel]="user.mobilePhone" (ngModelChange)="user.mobilePhone=$event" type="tel" class="form-control" placeholder="输入手机号" required>
+        <button *ngIf="sending == '0'" type="button" (click)="sendSms();countChange();" class="input-group-addon ">获取验证码</button>
+        <!--<span *ngIf="sending == 0" class="input-group-addon">-->
+        <span *ngIf="sending == '1'"  class="input-group-addon" style="color: #ddd">
+            <!--<koru-timer  (updateTimeCount)="timeCountChange=$event" ></koru-timer>-->
+            {{timeCount}}
+        </span>
+            
+        <!--</span>-->
+        
+    </div>
+    
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon hide-xs"><i class="fa fa-key fa-2" aria-hidden="true"></i></span>
+        <input [ngModel]="user.verificationCode" (ngModelChange)="user.verificationCode=$event" type="text" class="form-control " placeholder="输入验证码" required>
+        <span class="input-group-addon"></span>
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon hide-xs"><i class="fa fa-lock fa-2" aria-hidden="true"></i></span>
+        <input [ngModel]="user.userPwd" (ngModelChange)="user.userPwd=$event" type="password" class="form-control" placeholder="输入密码" required>
+        <span class="input-group-addon "></span>
+    </div>
+    <br>
+
+</div>
+
+<div class="container" style="margin: 0px 30px;">
+
+    <button type="button" (click)="register()" class="btn btn-primary btn-lg btn-block">注册</button>
+
+</div>

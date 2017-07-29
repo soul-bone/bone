@@ -1,0 +1,33 @@
+
+<div class="container">
+  <!-- Content here -->
+
+    <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
+    <div class="row" style="margin-top: 80px; margin-bottom: 80px">
+        <img src="assets/images/logo_koru@1x.png" class="img-fluid rounded mx-auto " alt="logo">
+    </div>
+
+</div>
+
+<div class="container" style="margin: 0px 20px 60px 20px;">
+
+    <div class="input-group ">
+        <span class="input-group-addon hide-xs"><i class="fa fa-credit-card fa-2" aria-hidden="true"></i></span>
+        <input [ngModel]="card.cardOutCode" (ngModelChange)="card.cardOutCode=$event" type="text" class="form-control" placeholder="输入卡号" required>
+        <span class="input-group-addon"></span>
+    </div>
+    <br>
+    <div class="input-group">
+        <span class="input-group-addon hide-xs"><i class="fa fa-lock fa-2" aria-hidden="true"></i></span>
+        <input [ngModel]="card.cardPwd" (ngModelChange)="card.cardPwd=$event" type="text" class="form-control " placeholder="输入密码" required>
+        <span class="input-group-addon"></span>
+    </div>
+    <br>
+
+</div>
+
+<div class="container" style="margin: 0px 30px;">
+
+    <button type="button" (click)="activate()" class="btn btn-primary btn-lg btn-block">激活</button>
+
+</div>
